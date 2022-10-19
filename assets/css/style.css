@@ -74,7 +74,7 @@
    */
 
   /* font-family */
-  --ff-poppins: 'Poppins', sans-serif;
+  --ff-poppins: 'Arial', sans-serif;
 
   /* font-size */
   --fs-1: 24px;
@@ -440,7 +440,7 @@ main {
 
 .social-item .social-link {
   color: var(--light-gray-70);
-  font-size: 18px;
+  font-size: 25px;
 }
 
 
