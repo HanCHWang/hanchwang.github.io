@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Han Wang</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/photo1.jpg" alt="Richard hanrick" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Han Wang">Han Wang (王汉)</h1>
+
+          <p class="title">Ph.D. Student</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="han.wang@eng.ox.ac.uk" class="contact-link">han.wang@eng.ox.ac.uk</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+44 07858348634" class="contact-link">+44 07858348634</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Oxford, UK</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/han-wang-ba3386180/" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://scholar.google.com/citations?user=iUn9IvYAAAAJ&hl=zh-CN" class="social-link">
+              <ion-icon name="logo-google"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://github.com/HanCHWang" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+      <nav class="navbar">
+      <ul class="navbar-list">
+
+        <li class="navbar-item">
+          <button class="navbar-link" onclick="location.href='./index.html'" type="button">Home</button>
+        </li>
+
+      </ul>
+    </nav>
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">Decentralized Control Design</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            I'm a thir-year Ph.D. student in <a href = "https://eng.ox.ac.uk/control/" style="color:#e1f24b;display:inline;"> Control Group </a>, 
+            University of Oxford. I am very lucky to be supervised by
+            <a href = "http://sysos.eng.ox.ac.uk/wiki/index.php/User:Antonis" style="color:#e1f24b;display:inline;">Prof. Antonis Papachristodoulou</a> 
+            and <a href = "https://kostasmargellos.github.io/" style="color:#e1f24b;display:inline;">Prof. Kostas Margellos</a>.
+            Before joining Oxford, I got my B.S. in information security from Shanghai Jiao Tong University, and worked as a 
+            research assistant at <a href = "https://fins.com" style="color:#e1f24b;display:inline;">FINS Lab</a>.  
+          </p>
+
+          <p>
+            My research interest mainly lies in control theory and optimization, with applications to robotics
+            and smart cities. I am especially interested in <i>Safety</i>, which is a basic property of 
+            dynamical systems like <i>Stability</i>. 
+          </p>
+
+          <p align="center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/EYDnT_Ayq6c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </p>
+        </section>
+        
+
+
+      </article>
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
