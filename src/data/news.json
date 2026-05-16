@@ -2,38 +2,31 @@
   "items": [
     {
       "date": "2026-05",
-      "text": "I attended EuroGNC 2026 and gave a tutorial talk on CBF design using convex optimization.",
-      "link": "https://eurognc.ceas.org/"
+      "text": "I attended EuroGNC 2026 and gave a tutorial talk on CBF design using convex optimization."
     },
     {
       "date": "2026-05",
-      "text": "One paper was accepted by Automatica.",
-      "link": "/publications"
+      "text": "One paper was accepted by Automatica."
     },
     {
       "date": "2026-04",
-      "text": "Our paper on convex co-design of control barrier functions and state feedback controllers appeared in IEEE Transactions on Automatic Control.",
-      "link": "/publications"
+      "text": "Our paper on convex co-design of control barrier functions and state feedback controllers appeared in IEEE Transactions on Automatic Control."
     },
     {
       "date": "2026-03",
-      "text": "One paper was accepted by ICLR 2026.",
-      "link": "/publications"
+      "text": "One paper was accepted by ICLR 2026."
     },
     {
       "date": "2026",
-      "text": "Our work on spatially informed Gaussian process UCB for decentralized coverage control appeared at the European Control Conference.",
-      "link": "/publications"
+      "text": "Our work on spatially informed Gaussian process UCB for decentralized coverage control appeared at the European Control Conference."
     },
     {
       "date": "2025",
-      "text": "Our paper on distributed safe control design and probabilistic safety verification for multi-agent systems appeared in Automatica.",
-      "link": "/publications"
+      "text": "Our paper on distributed safe control design and probabilistic safety verification for multi-agent systems appeared in Automatica."
     },
     {
       "date": "2025",
-      "text": "Our paper on constraint horizons in model predictive control appeared in IEEE Control Systems Letters.",
-      "link": "/publications"
+      "text": "Our paper on constraint horizons in model predictive control appeared in IEEE Control Systems Letters."
     }
   ]
 }
