@@ -22,7 +22,15 @@ import researchPillars from "../data/research-pillars.json";
           aria-label={`Read more about ${pillar.title}`}
         >
           {pillar.media?.type === "video" ? (
-            <video src={pillar.media.src} autoplay muted loop playsinline></video>
+            <video
+              src={pillar.media.src}
+              poster={pillar.media.poster}
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
           ) : pillar.media?.src ? (
             <img src={pillar.media.src} alt="" />
           ) : (

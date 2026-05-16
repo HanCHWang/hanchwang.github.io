@@ -119,7 +119,8 @@
       "summary": "Optimization and learning tools for autonomous systems operating in uncertain, real-world environments.",
       "media": {
         "type": "video",
-        "src": "/research/cbf.mp4"
+        "src": "/research/cbf.mp4",
+        "poster": "/research/cbf-poster.jpg"
       },
       "sections": [
         {
