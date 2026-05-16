@@ -9,9 +9,10 @@
   --accent-ink: #0a4f4b;
   --accent-soft: #d9ebe6;
   --shadow: rgba(35, 42, 49, 0.1);
-  --font-body: Avenir, "Avenir Next", Optima, "Gill Sans", Corbel, sans-serif;
-  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
-  --font-cjk-display: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  --font-body: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  --font-display: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-body);
+  --font-cjk-display: "PingFang SC", "Heiti SC", "Microsoft YaHei", sans-serif;
 }
 
 * {
@@ -38,7 +39,7 @@ h2,
 h3 {
   font-family: var(--font-display);
   color: var(--text);
-  letter-spacing: 0;
+  letter-spacing: -0.03em;
 }
 
 .container {
