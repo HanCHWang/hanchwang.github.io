@@ -89,15 +89,17 @@ const links = [
     if (!countdownDays || !countdownUnit) return;
 
     const now = new Date();
-    const currentYearStart = new Date(now.getFullYear(), 11, 1);
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const currentYearStart = new Date(today.getFullYear(), 11, 1);
     const target =
-      now <= currentYearStart ? currentYearStart : new Date(now.getFullYear() + 1, 11, 1);
+      today <= currentYearStart ? currentYearStart : new Date(today.getFullYear() + 1, 11, 1);
     const msPerDay = 24 * 60 * 60 * 1000;
-    const days = Math.max(0, Math.ceil((target.getTime() - now.getTime()) / msPerDay));
+    const days = Math.round((target.getTime() - today.getTime()) / msPerDay);
 
     countdownDays.textContent = String(days);
     countdownUnit.textContent = days === 1 ? "day" : "days";
   }
 
   updateSnowCountdown();
+  window.setInterval(updateSnowCountdown, 60 * 60 * 1000);
 </script>
