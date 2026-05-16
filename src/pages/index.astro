@@ -5,6 +5,15 @@ import researchPillars from "../data/research-pillars.json";
 
 const latestNews = news.items.slice(0, 3);
 const earlierNews = news.items.slice(3);
+
+function getLinkProps(link?: string) {
+  const isExternal = link?.startsWith("http");
+
+  return {
+    target: isExternal ? "_blank" : undefined,
+    rel: isExternal ? "noreferrer" : undefined,
+  };
+}
 ---
 
 <MainLayout title="Han Wang | Home">
@@ -94,7 +103,11 @@ const earlierNews = news.items.slice(3);
         {latestNews.map((item) => (
           <li>
             <time>{item.date}</time>
-            <span>{item.text}</span>
+            {item.link ? (
+              <a href={item.link} {...getLinkProps(item.link)}>{item.text}</a>
+            ) : (
+              <span>{item.text}</span>
+            )}
           </li>
         ))}
       </ol>
@@ -106,7 +119,11 @@ const earlierNews = news.items.slice(3);
             {earlierNews.map((item) => (
               <li>
                 <time>{item.date}</time>
-                <span>{item.text}</span>
+                {item.link ? (
+                  <a href={item.link} {...getLinkProps(item.link)}>{item.text}</a>
+                ) : (
+                  <span>{item.text}</span>
+                )}
               </li>
             ))}
           </ol>

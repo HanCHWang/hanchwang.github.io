@@ -1030,11 +1030,23 @@ h3 {
   line-height: 1.62;
 }
 
-.compact-news-list span {
+.compact-news-list span,
+.compact-news-list a {
   color: var(--text);
   font-family: var(--font-body);
   font-size: 1.05rem;
   line-height: 1.62;
+}
+
+.compact-news-list a {
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.compact-news-list a:hover,
+.compact-news-list a:focus-visible {
+  color: var(--accent-ink);
 }
 
 .earlier-news {
