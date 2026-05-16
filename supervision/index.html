@@ -1,32 +1,51 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" href="/favicon.ico?v=20260516" sizes="any"><link rel="icon" type="image/png" href="/favicon-192.png?v=20260516"><link rel="apple-touch-icon" href="/favicon-192.png?v=20260516"><meta property="og:image" content="/site-logo.png"><title>Supervision | Han Wang</title><script>
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><script>
       (() => {
-        try {
-          const storedTheme = localStorage.getItem("theme");
-          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          const theme = storedTheme || (prefersDark ? "dark" : "light");
-          document.documentElement.dataset.theme = theme;
-        } catch {
-          document.documentElement.dataset.theme = "light";
+        const fallbackTheme = "light";
+
+        function getInitialTheme() {
+          try {
+            const storedTheme = localStorage.getItem("theme");
+            if (storedTheme === "dark" || storedTheme === "light") {
+              return storedTheme;
+            }
+
+            return window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          } catch {
+            return fallbackTheme;
+          }
         }
+
+        const theme = getInitialTheme();
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
       })();
-    </script><link rel="stylesheet" href="/_astro/index.BKYLfJnH.css"></head> <body> <header class="site-header"> <nav class="nav" aria-label="Primary navigation"> <div class="nav-identity"> <a class="eth-logo" href="https://ethz.ch/" target="_blank" rel="noreferrer" aria-label="ETH Zürich"> <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/ETH_Z%C3%BCrich_Logo_black.svg" alt="ETH Zürich"> </a> <a class="nav-avatar" href="/" aria-label="Han Wang home"> <img src="/profile.jpg" alt="Portrait of Han Wang"> </a> <a href="/" class="brand"> <span>Han Wang</span> <span class="brand-cn">王汉</span> </a> </div> <div class="nav-right"> <div class="nav-links"> <a href="/" class="nav-link">About</a><a href="/publications" class="nav-link">Publications</a><a href="/research" class="nav-link">Research</a><a href="/supervision" class="nav-link">Supervision</a><a href="/misc" class="nav-link">Misc</a> </div> <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button"> <span id="theme-icon">🌙</span> </button> </div> </nav> </header> <script>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" href="/favicon.ico?v=20260516" sizes="any"><link rel="icon" type="image/png" href="/favicon-192.png?v=20260516"><link rel="apple-touch-icon" href="/favicon-192.png?v=20260516"><meta property="og:image" content="/site-logo.png"><title>Supervision | Han Wang</title><link rel="stylesheet" href="/_astro/index.BKYLfJnH.css"></head> <body> <header class="site-header"> <nav class="nav" aria-label="Primary navigation"> <div class="nav-identity"> <a class="eth-logo" href="https://ethz.ch/" target="_blank" rel="noreferrer" aria-label="ETH Zürich"> <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/ETH_Z%C3%BCrich_Logo_black.svg" alt="ETH Zürich"> </a> <a class="nav-avatar" href="/" aria-label="Han Wang home"> <img src="/profile.jpg" alt="Portrait of Han Wang"> </a> <a href="/" class="brand"> <span>Han Wang</span> <span class="brand-cn">王汉</span> </a> </div> <div class="nav-right"> <div class="nav-links"> <a href="/" class="nav-link">About</a><a href="/publications" class="nav-link">Publications</a><a href="/research" class="nav-link">Research</a><a href="/supervision" class="nav-link">Supervision</a><a href="/misc" class="nav-link">Misc</a> </div> <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button"> <span id="theme-icon">🌙</span> </button> </div> </nav> </header> <script>
   const button = document.getElementById("theme-toggle");
   const icon = document.getElementById("theme-icon");
+  const root = document.documentElement;
 
   function updateIcon(theme) {
     if (icon) icon.textContent = theme === "dark" ? "☀️" : "🌙";
   }
 
-  const currentTheme =
-    document.documentElement.dataset.theme || localStorage.getItem("theme") || "light";
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+    localStorage.setItem("theme", theme);
+    updateIcon(theme);
+  }
+
+  const currentTheme = root.dataset.theme || localStorage.getItem("theme") || "light";
+  root.dataset.theme = currentTheme;
+  root.style.colorScheme = currentTheme;
   updateIcon(currentTheme);
 
   button?.addEventListener("click", () => {
-    const current = document.documentElement.dataset.theme || "light";
+    const current = root.dataset.theme || "light";
     const next = current === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
-    localStorage.setItem("theme", next);
-    updateIcon(next);
+    applyTheme(next);
   });
 </script> <main class="container">  <section class="page-intro"> <h1>Supervision</h1> <p class="intro">
 I supervise master theses in safe learning, adaptive control, optimization

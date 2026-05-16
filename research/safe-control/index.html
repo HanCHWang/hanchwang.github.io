@@ -1,31 +1,50 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" href="/favicon.ico?v=20260516" sizes="any"><link rel="icon" type="image/png" href="/favicon-192.png?v=20260516"><link rel="apple-touch-icon" href="/favicon-192.png?v=20260516"><meta property="og:image" content="/site-logo.png"><title>Safe Control | Research | Han Wang</title><script>
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><script>
       (() => {
-        try {
-          const storedTheme = localStorage.getItem("theme");
-          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          const theme = storedTheme || (prefersDark ? "dark" : "light");
-          document.documentElement.dataset.theme = theme;
-        } catch {
-          document.documentElement.dataset.theme = "light";
+        const fallbackTheme = "light";
+
+        function getInitialTheme() {
+          try {
+            const storedTheme = localStorage.getItem("theme");
+            if (storedTheme === "dark" || storedTheme === "light") {
+              return storedTheme;
+            }
+
+            return window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          } catch {
+            return fallbackTheme;
+          }
         }
+
+        const theme = getInitialTheme();
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
       })();
-    </script><link rel="stylesheet" href="/_astro/index.BKYLfJnH.css"></head> <body> <header class="site-header"> <nav class="nav" aria-label="Primary navigation"> <div class="nav-identity"> <a class="eth-logo" href="https://ethz.ch/" target="_blank" rel="noreferrer" aria-label="ETH Zürich"> <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/ETH_Z%C3%BCrich_Logo_black.svg" alt="ETH Zürich"> </a> <a class="nav-avatar" href="/" aria-label="Han Wang home"> <img src="/profile.jpg" alt="Portrait of Han Wang"> </a> <a href="/" class="brand"> <span>Han Wang</span> <span class="brand-cn">王汉</span> </a> </div> <div class="nav-right"> <div class="nav-links"> <a href="/" class="nav-link">About</a><a href="/publications" class="nav-link">Publications</a><a href="/research" class="nav-link">Research</a><a href="/supervision" class="nav-link">Supervision</a><a href="/misc" class="nav-link">Misc</a> </div> <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button"> <span id="theme-icon">🌙</span> </button> </div> </nav> </header> <script>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" href="/favicon.ico?v=20260516" sizes="any"><link rel="icon" type="image/png" href="/favicon-192.png?v=20260516"><link rel="apple-touch-icon" href="/favicon-192.png?v=20260516"><meta property="og:image" content="/site-logo.png"><title>Safe Control | Research | Han Wang</title><link rel="stylesheet" href="/_astro/index.BKYLfJnH.css"></head> <body> <header class="site-header"> <nav class="nav" aria-label="Primary navigation"> <div class="nav-identity"> <a class="eth-logo" href="https://ethz.ch/" target="_blank" rel="noreferrer" aria-label="ETH Zürich"> <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/ETH_Z%C3%BCrich_Logo_black.svg" alt="ETH Zürich"> </a> <a class="nav-avatar" href="/" aria-label="Han Wang home"> <img src="/profile.jpg" alt="Portrait of Han Wang"> </a> <a href="/" class="brand"> <span>Han Wang</span> <span class="brand-cn">王汉</span> </a> </div> <div class="nav-right"> <div class="nav-links"> <a href="/" class="nav-link">About</a><a href="/publications" class="nav-link">Publications</a><a href="/research" class="nav-link">Research</a><a href="/supervision" class="nav-link">Supervision</a><a href="/misc" class="nav-link">Misc</a> </div> <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button"> <span id="theme-icon">🌙</span> </button> </div> </nav> </header> <script>
   const button = document.getElementById("theme-toggle");
   const icon = document.getElementById("theme-icon");
+  const root = document.documentElement;
 
   function updateIcon(theme) {
     if (icon) icon.textContent = theme === "dark" ? "☀️" : "🌙";
   }
 
-  const currentTheme =
-    document.documentElement.dataset.theme || localStorage.getItem("theme") || "light";
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+    localStorage.setItem("theme", theme);
+    updateIcon(theme);
+  }
+
+  const currentTheme = root.dataset.theme || localStorage.getItem("theme") || "light";
+  root.dataset.theme = currentTheme;
+  root.style.colorScheme = currentTheme;
   updateIcon(currentTheme);
 
   button?.addEventListener("click", () => {
-    const current = document.documentElement.dataset.theme || "light";
+    const current = root.dataset.theme || "light";
     const next = current === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
-    localStorage.setItem("theme", next);
-    updateIcon(next);
+    applyTheme(next);
   });
 </script> <main class="container">  <section class="page-intro"> <h1>Safe Control</h1> <p class="intro">Safety verification and control design for dynamical systems.</p> </section> <section class="research-detail-layout"> <div class="research-detail-body"> <section class="research-work-section"> <h2>CBF Design</h2> <p>A central theme of my research is the computational design of control barrier functions for safety-critical control. Although CBFs offer an elegant certificate for forward invariance, designing both the barrier certificate and the controller is generally nonconvex, especially in the presence of input constraints, higher or mixed relative degrees, and model uncertainty. My work develops convex optimization-based methods to overcome this difficulty. I have proposed tractable co-design frameworks for jointly synthesizing CBFs and state-feedback controllers for linear systems with input constraints, extended these ideas to mixed-relative-degree safety constraints, and developed convex and sum-of-squares-based approaches for safety verification and certificate synthesis in uncertain and discrete-time systems. Together, these contributions aim to make CBF design less ad hoc and more systematic, scalable, and certifiable for autonomous systems.</p> <div class="research-publications"> <h3>Selected Publications</h3> <ol> <li> <a href="https://doi.org/10.1109/TAC.2025.3638061">Convex Co-Design of Control Barrier Functions and State Feedback Controllers for Linear Systems With Input Constraints</a> </li><li> <a href="https://doi.org/10.1109/CDC56724.2024.10886664">Convex Co-Design of Mixed-Relative Degree Control Barrier Functions and Feedback Controllers for Linear Systems</a> </li><li> <a href="https://doi.org/10.1016/j.ifacol.2023.10.1876">Safety Verification and Controller Synthesis for Systems with Input Constraints</a> </li><li> <a href="https://doi.org/10.1007/978-3-031-38659-6_7">Assessing Safety for Control Systems Using Sum-of-Squares Programming</a> </li><li> <a href="/publications">Synthesis of Safety Certificates for Discrete-Time Uncertain Systems via Convex Optimization</a> </li> </ol> </div> </section><section class="research-work-section"> <h2>Compatibility of Safety and Optimality</h2> <p>My work on predictive control develops less conservative and more flexible ways to enforce safety constraints in receding-horizon control. A key idea is the constraint horizon: instead of imposing all constraints over the full prediction horizon, safety and performance requirements can be assigned to different horizons, improving feasibility while maintaining rigorous constraint satisfaction. I extended this perspective to multiple constraint horizons and explored its connection with control barrier functions through predictive control barrier functions, which combine the planning capability of MPC with the certificate-based safety guarantees of CBFs. I have also studied safe and stable filter design via relaxed compatibility conditions between barrier and Lyapunov functions, and data-enabled predictive control for nonlinear systems using Koopman bilinear realizations. These contributions aim to make predictive control more scalable, less conservative, and more compatible with modern learning-based autonomy.</p> <div class="research-publications"> <h3>Selected Publications</h3> <ol> <li> <a href="https://doi.org/10.1109/LCSYS.2025.3580355">Constraint Horizon in Model Predictive Control</a> </li><li> <a href="/publications">Model Predictive Control with Multiple Constraint Horizons</a> </li><li> <a href="https://arxiv.org/abs/2407.00414">Safe and Stable Filter Design Using a Relaxed Compatibility Control Barrier-Lyapunov Condition</a> </li><li> <a href="/publications">Predictive Control Barrier Functions: Bridging Model Predictive Control and Control Barrier Functions</a> </li><li> <a href="/publications">Data-Enabled Predictive Control for Nonlinear Systems Based on a Koopman Bilinear Realization</a> </li><li> <a href="https://doi.org/10.1016/j.automatica.2025.112393">Distributed safe control design and probabilistic safety verification for multi-agent systems</a> </li> </ol> </div> </section> </div> </section> <aside class="other-research-topics" aria-labelledby="other-research-heading"> <p class="eyebrow" id="other-research-heading">Other Research Topics</p> <div class="research-sibling-nav" aria-label="Other research topics"> <a href="/research/certified-learning"> <span>Certified Learning</span> <small>Learning-based controllers and models with guarantees for stability, optimality, and reliability.</small> </a><a href="/research/practical-autonomy"> <span>Practical Autonomy</span> <small>Optimization and learning tools for autonomous systems operating in uncertain, real-world environments.</small> </a> </div> </aside>  </main> </body></html>
