@@ -34,7 +34,8 @@ const links = [
       </div>
 
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button">
-        <span id="theme-icon">🌙</span>
+        <span class="theme-option theme-option-light" aria-hidden="true">☀</span>
+        <span class="theme-option theme-option-dark" aria-hidden="true">☾</span>
       </button>
     </div>
   </nav>
@@ -42,11 +43,14 @@ const links = [
 
 <script is:inline>
   const button = document.getElementById("theme-toggle");
-  const icon = document.getElementById("theme-icon");
   const root = document.documentElement;
 
   function updateIcon(theme) {
-    if (icon) icon.textContent = theme === "dark" ? "☀️" : "🌙";
+    button?.setAttribute("data-theme-state", theme);
+    button?.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Switch to light theme" : "Switch to dark theme",
+    );
   }
 
   function applyTheme(theme) {

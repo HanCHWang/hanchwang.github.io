@@ -62,23 +62,26 @@ h3 {
 .nav {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   justify-content: flex-start;
-  gap: 1.8rem;
+  gap: 2.1rem;
   min-height: 100%;
-  padding: 2rem 1.15rem;
+  padding: 2.1rem 1.15rem;
 }
 
 .nav-identity {
-  display: grid;
-  gap: 0.9rem;
-  justify-items: start;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
 }
 
 .eth-logo {
   display: block;
-  width: min(150px, 100%);
-  margin-bottom: 0.45rem;
+  width: min(158px, 100%);
+  margin-bottom: 0.15rem;
   opacity: 0.82;
 }
 
@@ -89,14 +92,14 @@ h3 {
 }
 
 .nav-avatar {
-  width: 84px;
-  height: 84px;
+  width: 92px;
+  height: 92px;
   display: block;
-  justify-self: center;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 50%;
   background: color-mix(in srgb, var(--surface) 68%, var(--bg));
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--shadow) 70%, transparent);
 }
 
 .nav-avatar img {
@@ -109,12 +112,13 @@ h3 {
 
 .brand {
   display: grid;
-  gap: 0.15rem;
+  gap: 0.2rem;
   font-family: var(--font-display);
   font-size: 1.48rem;
   font-weight: 700;
   color: var(--text);
   text-decoration: none;
+  text-align: center;
 }
 
 .brand-cn {
@@ -128,16 +132,18 @@ h3 {
 .nav-links {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  align-items: center;
+  gap: 0.22rem;
 }
 
 .nav-link {
   display: block;
-  padding: 0.42rem 0;
+  padding: 0.38rem 0;
   color: var(--muted);
   text-decoration: none;
   font-size: 1.08rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .nav-link:hover {
@@ -146,29 +152,59 @@ h3 {
 
 .nav-right {
   display: flex;
+  width: 100%;
   flex-direction: column;
-  align-items: stretch;
-  gap: 1.3rem;
+  align-items: center;
+  gap: 1.45rem;
 }
 
 .theme-toggle {
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
 }
 
 .theme-toggle {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
+  justify-content: space-between;
+  width: 78px;
+  height: 40px;
   border: 1px solid var(--border);
-  background: var(--surface);
+  background: color-mix(in srgb, var(--surface) 82%, var(--bg));
   color: var(--text);
   border-radius: 999px;
-  padding: 0;
+  padding: 3px;
   cursor: pointer;
-  font-size: 1rem;
   flex: 0 0 auto;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--surface) 42%, transparent);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle[data-theme-state="light"] .theme-option-light,
+.theme-toggle[data-theme-state="dark"] .theme-option-dark {
+  background: var(--text);
+  color: var(--bg);
+  transform: scale(1.02);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-soft) 72%, transparent);
 }
 
 :root[data-theme="dark"] {
@@ -214,6 +250,16 @@ h3 {
     padding: 0 1rem;
     flex-direction: row;
     align-items: center;
+  }
+
+  .nav-identity {
+    width: auto;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .brand {
+    text-align: left;
   }
 
   .eth-logo,
