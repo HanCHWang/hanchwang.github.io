@@ -38,6 +38,17 @@ const links = [
         <span class="theme-option theme-option-dark" aria-hidden="true">☾</span>
       </button>
     </div>
+
+    <aside class="snow-countdown" aria-label="Swiss snow season countdown">
+      <img src="/swiss-snow-season.svg" alt="Swiss snow season" />
+      <div class="snow-countdown-copy">
+        <span class="snow-countdown-label">Swiss snow season</span>
+        <span class="snow-countdown-time">
+          <strong id="snow-countdown-days">--</strong>
+          <span id="snow-countdown-unit">days</span>
+        </span>
+      </div>
+    </aside>
   </nav>
 </header>
 
@@ -70,4 +81,23 @@ const links = [
     const next = current === "dark" ? "light" : "dark";
     applyTheme(next);
   });
+
+  const countdownDays = document.getElementById("snow-countdown-days");
+  const countdownUnit = document.getElementById("snow-countdown-unit");
+
+  function updateSnowCountdown() {
+    if (!countdownDays || !countdownUnit) return;
+
+    const now = new Date();
+    const currentYearStart = new Date(now.getFullYear(), 11, 1);
+    const target =
+      now <= currentYearStart ? currentYearStart : new Date(now.getFullYear() + 1, 11, 1);
+    const msPerDay = 24 * 60 * 60 * 1000;
+    const days = Math.max(0, Math.ceil((target.getTime() - now.getTime()) / msPerDay));
+
+    countdownDays.textContent = String(days);
+    countdownUnit.textContent = days === 1 ? "day" : "days";
+  }
+
+  updateSnowCountdown();
 </script>
