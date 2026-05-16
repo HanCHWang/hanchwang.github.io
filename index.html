@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Han Wang | Home</title><link rel="stylesheet" href="/_astro/index.Btrsed6o.css"></head> <body> <header class="site-header"> <nav class="nav" aria-label="Primary navigation"> <div class="nav-identity"> <a class="eth-logo" href="https://ethz.ch/" target="_blank" rel="noreferrer" aria-label="ETH Zürich"> <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/ETH_Z%C3%BCrich_Logo_black.svg" alt="ETH Zürich"> </a> <a class="nav-avatar" href="/" aria-label="Han Wang home"> <img src="/profile.jpg" alt="Portrait of Han Wang"> </a> <a href="/" class="brand"> <span>Han Wang</span> <span class="brand-cn">王汉</span> </a> </div> <div class="nav-right"> <div class="nav-links"> <a href="/" class="nav-link">About</a><a href="/publications" class="nav-link">Publications</a><a href="/research" class="nav-link">Research</a><a href="/teaching" class="nav-link">Teaching</a><a href="/supervision" class="nav-link">Supervision</a><a href="/misc" class="nav-link">Misc</a> </div> <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" type="button"> <span id="theme-icon">🌙</span> </button> </div> </nav> </header> <script>
+  const button = document.getElementById("theme-toggle");
+  const icon = document.getElementById("theme-icon");
+
+  function updateIcon(theme) {
+    if (icon) icon.textContent = theme === "dark" ? "☀️" : "🌙";
+  }
+
+  const currentTheme = document.documentElement.dataset.theme || "light";
+  updateIcon(currentTheme);
+
+  button?.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme || "light";
+    const next = current === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem("theme", next);
+    updateIcon(next);
+  });
+</script> <main class="container">  <section class="home-shell"> <div> <section class="home-hero"> <div class="home-hero-copy"> <h1>
+Han Wang
+<span>王汉</span> </h1> <p class="home-lede">
+I work on safe learning, optimization, verification, and dynamical
+            systems, with a focus on control methods that remain reliable when
+            deployed on complex engineering systems.
+</p> <nav class="pillar-tags" aria-label="Research pillars"> <a href="/research#safe-control"> <span>Safe Control</span> </a><a href="/research#certified-learning"> <span>Certified Learning</span> </a><a href="/research#practical-autonomy"> <span>Practical Autonomy</span> </a> </nav> <nav class="profile-text-links" aria-label="Academic profile links"> <a href="https://scholar.google.com/citations?user=iUn9IvYAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a> <a href="https://orcid.org/0000-0002-2752-984X" target="_blank" rel="noreferrer">ORCID</a> <a href="mailto:hanwang1@ethz.ch">Email</a> <a href="/cv.pdf" target="_blank" rel="noreferrer">CV</a> </nav> </div> <aside class="home-portrait-panel" aria-label="Profile portrait"> <img class="home-portrait" src="/profile.jpg" alt="Portrait of Han Wang"> </aside> </section> <section class="home-section bio-section home-academic-upfront" aria-labelledby="academic-path"> <div class="academic-layout"> <div class="academic-copy"> <div class="home-section-heading"> <h2 id="academic-path">Education &amp; Experience</h2> </div> <p>
+I am currently a Postdoctoral Researcher at ETH Zürich, hosted by
+<a href="https://dorfler.ethz.ch/" target="_blank" rel="noreferrer">Florian Dörfler</a>.
+              I received my Ph.D. in Control Engineering from the University of Oxford,
+              advised by
+<a href="https://eng.ox.ac.uk/people/antonis-papachristodoulou/" target="_blank" rel="noreferrer">Antonis Papachristodoulou</a>
+and
+<a href="https://eng.ox.ac.uk/people/kostas-margellos" target="_blank" rel="noreferrer">Kostas Margellos</a>,
+              and my B.S. in Cyber Security from Shanghai Jiao Tong University, advised by
+<a href="https://sais.sjtu.edu.cn/faculty/hejianping.html" target="_blank" rel="noreferrer">Jianping He</a>.
+</p> </div> <ol class="academic-timeline"> <li> <time>2025 - present</time> <span>Postdoctoral Researcher, ETH Zürich</span> </li> <li> <time>2020 - 2024</time> <span>Ph.D. in Control Engineering, University of Oxford</span> </li> <li> <time>2016 - 2020</time> <span>B.S. in Cyber Security, Shanghai Jiao Tong University</span> </li> </ol> </div> </section> </div> </section> <section class="home-section news-home-section" aria-labelledby="home-news"> <div class="home-section-heading"> <h2 id="home-news">Latest News</h2> </div> <div class="news-column"> <ol class="compact-news-list"> <li> <time>2026-04</time> <span>Our paper on convex co-design of control barrier functions and state feedback controllers appeared in IEEE Transactions on Automatic Control.</span> </li><li> <time>2026</time> <span>Our paper on learning Koopman representations with controllability guarantees appeared at ICLR.</span> </li><li> <time>2026</time> <span>Our work on spatially informed Gaussian process UCB for decentralized coverage control appeared at the European Control Conference.</span> </li> </ol> <details class="earlier-news"> <summary>Earlier News</summary> <ol class="compact-news-list"> <li> <time>2025</time> <span>Our paper on distributed safe control design and probabilistic safety verification for multi-agent systems appeared in Automatica.</span> </li><li> <time>2025</time> <span>Our paper on constraint horizons in model predictive control appeared in IEEE Control Systems Letters.</span> </li> </ol> </details> </div> </section>  </main> </body></html>
