@@ -188,6 +188,10 @@ h3 {
   filter: invert(1);
 }
 
+:root[data-theme="dark"] .supervision-institution-logo {
+  filter: invert(1) saturate(0.8);
+}
+
 @media (max-width: 900px) {
   body {
     padding-left: 0;
