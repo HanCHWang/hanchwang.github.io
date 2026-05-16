@@ -43,20 +43,27 @@ const links = [
 <script is:inline>
   const button = document.getElementById("theme-toggle");
   const icon = document.getElementById("theme-icon");
+  const root = document.documentElement;
 
   function updateIcon(theme) {
     if (icon) icon.textContent = theme === "dark" ? "☀️" : "🌙";
   }
 
-  const currentTheme =
-    document.documentElement.dataset.theme || localStorage.getItem("theme") || "light";
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+    localStorage.setItem("theme", theme);
+    updateIcon(theme);
+  }
+
+  const currentTheme = root.dataset.theme || localStorage.getItem("theme") || "light";
+  root.dataset.theme = currentTheme;
+  root.style.colorScheme = currentTheme;
   updateIcon(currentTheme);
 
   button?.addEventListener("click", () => {
-    const current = document.documentElement.dataset.theme || "light";
+    const current = root.dataset.theme || "light";
     const next = current === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
-    localStorage.setItem("theme", next);
-    updateIcon(next);
+    applyTheme(next);
   });
 </script>
