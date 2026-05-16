@@ -1,0 +1,77 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import researchPillars from "../../data/research-pillars.json";
+
+export function getStaticPaths() {
+  return researchPillars.items.map((pillar) => ({
+    params: { slug: pillar.slug },
+    props: { pillar },
+  }));
+}
+
+const { pillar } = Astro.props;
+const otherPillars = researchPillars.items.filter((item) => item.slug !== pillar.slug);
+---
+
+<MainLayout title={`${pillar.title} | Research | Han Wang`}>
+  <section class="page-intro">
+    <h1>{pillar.title}</h1>
+    <p class="intro">{pillar.summary}</p>
+  </section>
+
+  <section class="research-detail-layout">
+    <div class="research-detail-body">
+      {pillar.sections ? (
+        pillar.sections.map((section) => (
+          <section class="research-work-section">
+            <h2>{section.title}</h2>
+            <p>{section.description}</p>
+
+            {section.publications && (
+              <div class="research-publications">
+                <h3>Selected Publications</h3>
+                <ol>
+                  {section.publications.map((publication) => (
+                    <li>
+                      <a href={publication.href}>{publication.title}</a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+          </section>
+        ))
+      ) : (
+        <>
+          <section>
+            <h2>Overview</h2>
+            <p>
+              This page will describe the main ideas, methods, and applications
+              in this research direction.
+            </p>
+          </section>
+
+          <section>
+            <h2>Related Publications</h2>
+            <p>
+              Add selected papers for this pillar here. The page is ready for a
+              curated list of publications, preprints, and project links.
+            </p>
+          </section>
+        </>
+      )}
+    </div>
+  </section>
+
+  <aside class="other-research-topics" aria-labelledby="other-research-heading">
+    <p class="eyebrow" id="other-research-heading">Other Research Topics</p>
+    <div class="research-sibling-nav" aria-label="Other research topics">
+      {otherPillars.map((item) => (
+        <a href={`/research/${item.slug}`}>
+          <span>{item.title}</span>
+          <small>{item.summary}</small>
+        </a>
+      ))}
+    </div>
+  </aside>
+</MainLayout>

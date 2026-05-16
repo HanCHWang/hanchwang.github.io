@@ -1,0 +1,198 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import config from "../data/publications.config.json";
+import generated from "../data/publications.generated.json";
+import manual from "../data/publications.manual.json";
+import overrides from "../data/publications.overrides.json";
+
+type LinkMap = {
+  doi?: string;
+  arxiv?: string;
+  pdf?: string;
+  code?: string;
+  url?: string;
+};
+
+type Publication = {
+  id: string;
+  source?: string;
+  type?: string;
+  category?: string;
+  title: string;
+  subtitle?: string;
+  authors?: string[];
+  venue?: string;
+  year?: string;
+  date?: string;
+  volume?: string;
+  issue?: string;
+  pages?: string;
+  publisher?: string;
+  note?: string;
+  links?: LinkMap;
+};
+
+const categories = [
+  { key: "journal", label: "Journal Articles" },
+  { key: "conference", label: "Conference Papers" },
+  { key: "book-chapter", label: "Book Chapters" },
+  { key: "preprint", label: "Preprints" },
+  { key: "other", label: "Other Publications" },
+];
+
+function mergePublication(base: Publication, patch: Partial<Publication> = {}) {
+  return {
+    ...base,
+    ...patch,
+    links: {
+      ...(base.links || {}),
+      ...(patch.links || {}),
+    },
+  };
+}
+
+const publicationsById = new Map<string, Publication>();
+
+for (const item of generated.items as Publication[]) {
+  publicationsById.set(item.id, item);
+}
+
+for (const item of manual.items as Publication[]) {
+  const existing = publicationsById.get(item.id);
+  publicationsById.set(item.id, existing ? mergePublication(existing, item) : item);
+}
+
+const publicationOverrides = overrides as Record<string, Partial<Publication>>;
+
+for (const [id, patch] of Object.entries(publicationOverrides)) {
+  const existing = publicationsById.get(id);
+  if (existing) publicationsById.set(id, mergePublication(existing, patch));
+}
+
+const publications = [...publicationsById.values()].sort((a, b) => {
+  const yearDiff = Number(b.year || 0) - Number(a.year || 0);
+  if (yearDiff !== 0) return yearDiff;
+  return a.title.localeCompare(b.title);
+});
+
+const groupedPublications = categories.map((category) => ({
+  ...category,
+  items: publications.filter((publication) => (publication.category || "other") === category.key),
+}));
+
+const totalCount = publications.length;
+
+function compact(parts: Array<string | undefined>) {
+  return parts.filter(Boolean).join(", ");
+}
+
+function formatVenue(publication: Publication) {
+  const volumeIssue =
+    publication.volume && publication.issue
+      ? `vol. ${publication.volume}, no. ${publication.issue}`
+      : publication.volume
+        ? `vol. ${publication.volume}`
+        : publication.issue
+          ? `no. ${publication.issue}`
+          : "";
+
+  return compact([
+    publication.venue,
+    publication.publisher,
+    volumeIssue,
+    publication.pages ? `pp. ${publication.pages}` : "",
+    publication.year,
+  ]);
+}
+
+function getLinks(publication: Publication) {
+  const links = publication.links || {};
+  return [
+    { label: "DOI", href: links.doi },
+    { label: "arXiv", href: links.arxiv },
+    { label: "PDF", href: links.pdf },
+    { label: "Code", href: links.code },
+    { label: "Link", href: links.url },
+  ].filter((link) => link.href);
+}
+---
+
+<MainLayout title="Publications | Han Wang">
+  <section class="page-intro">
+    <h1>Publications</h1>
+    <p class="intro">
+      Publications are grouped by type and can be updated from ORCID while still
+      allowing manual additions for papers that are not indexed yet.
+    </p>
+
+    <div class="publication-toolbar" aria-label="Publication sources">
+      <span class="publication-count">{totalCount} publication{totalCount === 1 ? "" : "s"}</span>
+      {config.links.googleScholar && (
+        <a href={config.links.googleScholar} target="_blank" rel="noreferrer">Google Scholar</a>
+      )}
+      {config.links.orcid && (
+        <a href={config.links.orcid} target="_blank" rel="noreferrer">ORCID</a>
+      )}
+    </div>
+  </section>
+
+  {totalCount === 0 ? (
+    <section class="empty-state">
+      <h2>No publications yet</h2>
+      <p>
+        Add manual entries in <code>src/data/publications.manual.json</code>, or
+        set an ORCID iD in <code>src/data/publications.config.json</code> and run
+        <code>npm run fetch:publications</code>.
+      </p>
+    </section>
+  ) : (
+    <div class="publication-list">
+      {groupedPublications.map((group) => (
+        group.items.length > 0 && (
+          <section class="publication-section" aria-labelledby={`publications-${group.key}`}>
+            <h2 id={`publications-${group.key}`}>{group.label}</h2>
+
+            <ol>
+              {group.items.map((publication) => {
+                const links = getLinks(publication);
+                const venue = formatVenue(publication);
+
+                return (
+                  <li class="publication-item">
+                    <article>
+                      <h3>{publication.title}</h3>
+
+                      {publication.authors && publication.authors.length > 0 && (
+                        <p class="publication-authors">
+                          {publication.authors.map((author, index) => (
+                            <>
+                              <span class:list={{ "author-self": author.toLowerCase().includes(config.profileName.toLowerCase()) }}>
+                                {author}
+                              </span>
+                              {index < publication.authors!.length - 1 ? ", " : ""}
+                            </>
+                          ))}
+                        </p>
+                      )}
+
+                      {venue && <p class="publication-venue">{venue}</p>}
+                      {publication.note && <p class="publication-note">{publication.note}</p>}
+
+                      {links.length > 0 && (
+                        <div class="publication-links">
+                          {links.map((link) => (
+                            <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+                          ))}
+                        </div>
+                      )}
+                    </article>
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        )
+      ))}
+    </div>
+  )}
+</MainLayout>

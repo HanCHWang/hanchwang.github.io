@@ -1,17 +1,116 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
+import news from "../data/news.json";
+import researchPillars from "../data/research-pillars.json";
 
+const latestNews = news.items.slice(0, 3);
+const earlierNews = news.items.slice(3);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Han Wang | Home">
+  <section class="home-shell">
+    <div>
+      <section class="home-hero">
+        <div class="home-hero-copy">
+          <h1>
+            Han Wang
+            <span>王汉</span>
+          </h1>
+          <p class="home-lede">
+            I work on safe learning, optimization, verification, and dynamical
+            systems, with a focus on control methods that remain reliable when
+            deployed on complex engineering systems.
+          </p>
+
+          <nav class="pillar-tags" aria-label="Research pillars">
+            {researchPillars.items.map((pillar) => (
+              <a href={`/research#${pillar.id}`}>
+                <span>{pillar.title}</span>
+              </a>
+            ))}
+          </nav>
+
+          <nav class="profile-text-links" aria-label="Academic profile links">
+            <a href="https://scholar.google.com/citations?user=iUn9IvYAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
+            <a href="https://orcid.org/0000-0002-2752-984X" target="_blank" rel="noreferrer">ORCID</a>
+            <a href="mailto:hanwang1@ethz.ch">Email</a>
+            <a href="/cv.pdf" target="_blank" rel="noreferrer">CV</a>
+          </nav>
+        </div>
+
+        <aside class="home-portrait-panel" aria-label="Profile portrait">
+          <img class="home-portrait" src="/profile.jpg" alt="Portrait of Han Wang" />
+        </aside>
+      </section>
+
+      <section class="home-section bio-section home-academic-upfront" aria-labelledby="academic-path">
+        <div class="academic-layout">
+          <div class="academic-copy">
+            <div class="home-section-heading">
+              <h2 id="academic-path">Education &amp; Experience</h2>
+            </div>
+
+            <p>
+              I am currently a Postdoctoral Researcher at ETH Zürich, hosted by
+              <a href="https://dorfler.ethz.ch/" target="_blank" rel="noreferrer">Florian Dörfler</a>.
+              I received my Ph.D. in Control Engineering from the University of Oxford,
+              advised by
+              <a href="https://eng.ox.ac.uk/people/antonis-papachristodoulou/" target="_blank" rel="noreferrer">Antonis Papachristodoulou</a>
+              and
+              <a href="https://eng.ox.ac.uk/people/kostas-margellos" target="_blank" rel="noreferrer">Kostas Margellos</a>,
+              and my B.S. in Cyber Security from Shanghai Jiao Tong University, advised by
+              <a href="https://sais.sjtu.edu.cn/faculty/hejianping.html" target="_blank" rel="noreferrer">Jianping He</a>.
+            </p>
+          </div>
+
+          <ol class="academic-timeline">
+            <li>
+              <time>2025 - present</time>
+              <span>Postdoctoral Researcher, ETH Zürich</span>
+            </li>
+            <li>
+              <time>2020 - 2024</time>
+              <span>Ph.D. in Control Engineering, University of Oxford</span>
+            </li>
+            <li>
+              <time>2016 - 2020</time>
+              <span>B.S. in Cyber Security, Shanghai Jiao Tong University</span>
+            </li>
+          </ol>
+        </div>
+
+      </section>
+    </div>
+  </section>
+
+  <section class="home-section news-home-section" aria-labelledby="home-news">
+    <div class="home-section-heading">
+      <h2 id="home-news">Latest News</h2>
+    </div>
+
+    <div class="news-column">
+      <ol class="compact-news-list">
+        {latestNews.map((item) => (
+          <li>
+            <time>{item.date}</time>
+            <span>{item.text}</span>
+          </li>
+        ))}
+      </ol>
+
+      {earlierNews.length > 0 && (
+        <details class="earlier-news">
+          <summary>Earlier News</summary>
+          <ol class="compact-news-list">
+            {earlierNews.map((item) => (
+              <li>
+                <time>{item.date}</time>
+                <span>{item.text}</span>
+              </li>
+            ))}
+          </ol>
+        </details>
+      )}
+    </div>
+  </section>
+</MainLayout>

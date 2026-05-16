@@ -1,0 +1,78 @@
+{
+  "groups": [
+    {
+      "label": "At ETH Zürich",
+      "items": [
+        {
+          "name": "Yifei Wang",
+          "role": "Master Student",
+          "project": "Model-Free Power System Stability Enhancement with Dissipativity-Based Neural Control",
+          "with": ["K. Zhuang", "K. Moffat", "Florian Dörfler"],
+          "period": "Spring 2025",
+          "outcome": "Journal paper"
+        },
+        {
+          "name": "Xian Li",
+          "role": "Master Student",
+          "project": "Gradient Flow for Online Semi-definite Programming",
+          "with": ["J. Eising", "Florian Dörfler"],
+          "period": "Fall 2025"
+        },
+        {
+          "name": "Papa Kwabena Nyameskye Odum",
+          "role": "Master Student",
+          "project": "Remote Monitoring and Control of Medium Voltage Cells at the 90kV Cimencam Cement Plant Electrical Inlet Station",
+          "with": ["V. Häberle", "Florian Dörfler"],
+          "period": "Fall 2025"
+        },
+        {
+          "name": "Emmanuel Korankye",
+          "role": "Master Student",
+          "project": "Direct Adaptive Control for Racing Cars",
+          "with": ["F. Zhao", "Florian Dörfler"],
+          "period": "Fall 2025"
+        },
+        {
+          "name": "Marius Baumann",
+          "role": "Master Student",
+          "project": "Enhancing Stability of Large-Scale Power Systems via Learning Dissipativity",
+          "with": ["T. Nakanto", "V. Häberle", "Florian Dörfler"],
+          "period": "Spring 2026"
+        },
+        {
+          "name": "Lorenzo Pasini",
+          "role": "Visiting Ph.D. Student from University of Padova",
+          "project": "Adaptive Policy Gradient Control for Nonlinear Systems",
+          "with": ["F. Zhao", "Florian Dörfler"],
+          "period": "Spring 2026"
+        },
+        {
+          "name": "Anshuman Barnwal",
+          "role": "Master Student",
+          "project": "Safe Manipulation in Complex Environment",
+          "with": ["P. Stocco", "L. Lindemann"],
+          "period": "Spring 2026"
+        },
+        {
+          "name": "Nilesh Balu",
+          "role": "Master Student",
+          "project": "Safe Flow Matching Using Control Barrier Functions",
+          "with": ["K. Miao (University of Oxford)", "L. Lindemann"],
+          "period": "Spring 2026"
+        }
+      ]
+    },
+    {
+      "label": "At University of Oxford",
+      "items": [
+        {
+          "name": "Jacob Holmes",
+          "role": "Master Student",
+          "project": "Safe Motion Planning for Racing Drones",
+          "with": ["Antonis Papachristodoulou"],
+          "period": "Spring 2023"
+        }
+      ]
+    }
+  ]
+}

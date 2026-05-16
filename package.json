@@ -4,6 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "fetch:publications": "node scripts/fetch-publications.mjs",
+    "build:with-publications": "npm run fetch:publications && astro build",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
