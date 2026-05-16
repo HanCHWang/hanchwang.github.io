@@ -48,7 +48,8 @@ const links = [
     if (icon) icon.textContent = theme === "dark" ? "☀️" : "🌙";
   }
 
-  const currentTheme = document.documentElement.dataset.theme || "light";
+  const currentTheme =
+    document.documentElement.dataset.theme || localStorage.getItem("theme") || "light";
   updateIcon(currentTheme);
 
   button?.addEventListener("click", () => {
