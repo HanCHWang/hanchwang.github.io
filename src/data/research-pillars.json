@@ -73,7 +73,7 @@
       "id": "certified-learning",
       "slug": "certified-learning",
       "title": "Certified Learning",
-      "summary": "Learning-based controllers and models with guarantees for stability, optimality, and reliability.",
+      "summary": "Ensuring hard constraints in machine learning models.",
       "media": {
         "type": "image",
         "src": "/research/koopman.jpg"
