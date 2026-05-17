@@ -63,18 +63,22 @@ h3 {
   margin: 0;
 }
 
-.robot-icon {
-  display: inline-grid;
-  place-items: center;
-  width: 1.55em;
-  height: 1.55em;
-  margin: 0 0.12em;
-  border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--border));
-  border-radius: 50%;
+.codex-logo {
+  display: inline-flex;
+  align-items: center;
+  height: 1.35em;
+  margin: 0 0.14em;
+  padding: 0 0.44em;
+  border: 1px solid color-mix(in srgb, var(--accent) 44%, var(--border));
+  border-radius: 999px;
   background: color-mix(in srgb, var(--accent-soft) 42%, var(--surface));
-  font-size: 0.95em;
+  color: var(--accent-ink);
+  font-size: 0.78em;
+  font-weight: 800;
+  letter-spacing: 0.02em;
   line-height: 1;
-  vertical-align: -0.18em;
+  text-transform: uppercase;
+  vertical-align: 0.06em;
 }
 
 .site-header {
