@@ -4,9 +4,27 @@ import "../styles/global.css";
 
 interface Props {
   title?: string;
+  description?: string;
+  canonicalPath?: string;
+  image?: string;
+  type?: string;
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
-const { title = "Han Wang" } = Astro.props;
+const {
+  title = "Han Wang",
+  description = "Han Wang is a postdoctoral researcher at ETH Zurich working on safety-critical control, certified learning, and autonomous systems.",
+  canonicalPath = Astro.url.pathname,
+  image = "/site-logo.png",
+  type = "website",
+  jsonLd,
+} = Astro.props;
+
+const site = Astro.site ?? new URL("https://hanchwang.github.io");
+const canonicalUrl = new URL(canonicalPath, site).toString();
+const imageUrl = new URL(image, site).toString();
+const structuredData = jsonLd ? JSON.stringify(jsonLd).replace(/</g, "\\u003c") : "";
+const currentYear = new Date().getFullYear();
 ---
 
 <!DOCTYPE html>
@@ -41,7 +59,23 @@ const { title = "Han Wang" } = Astro.props;
     <link rel="icon" href="/favicon.ico?v=20260516" sizes="any" />
     <link rel="icon" type="image/png" href="/favicon-192.png?v=20260516" />
     <link rel="apple-touch-icon" href="/favicon-192.png?v=20260516" />
-    <meta property="og:image" content="/site-logo.png" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Han Wang" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:site_name" content="Han Wang" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    {structuredData && (
+      <script type="application/ld+json" set:html={structuredData}></script>
+    )}
     <title>{title}</title>
   </head>
   <body>
@@ -49,5 +83,12 @@ const { title = "Han Wang" } = Astro.props;
     <main class="container">
       <slot />
     </main>
+    <footer class="site-footer">
+      <p>
+        © {currentYear} Han Wang. Website built by Codex
+        <span class="robot-icon" role="img" aria-label="robot">🤖</span>
+        with help from a human doctor, Han Wang.
+      </p>
+    </footer>
   </body>
 </html>

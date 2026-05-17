@@ -1,9 +1,26 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import researchPillars from "../data/research-pillars.json";
+
+const description =
+  "Research by Han Wang on safe control, certified learning, control barrier functions, predictive control, robotics, and practical autonomy.";
+const researchJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Research by Han Wang",
+  description,
+  url: "https://hanchwang.github.io/research/",
+  hasPart: researchPillars.items.map((pillar) => ({
+    "@type": "CreativeWork",
+    name: pillar.title,
+    description: pillar.summary,
+    url: `https://hanchwang.github.io/research/${pillar.slug}/`,
+    keywords: pillar.topics,
+  })),
+};
 ---
 
-<MainLayout title="Research | Han Wang">
+<MainLayout title="Research | Han Wang" description={description} canonicalPath="/research/" jsonLd={researchJsonLd}>
   <section class="page-intro">
     <h1>Research</h1>
     <p class="intro">

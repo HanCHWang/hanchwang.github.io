@@ -48,6 +48,35 @@ h3 {
   padding: 3rem 0;
 }
 
+.site-footer {
+  width: min(1040px, calc(100% - 3rem));
+  margin: 1rem auto 0;
+  padding: 1.4rem 0 2.4rem;
+  border-top: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.robot-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 1.55em;
+  height: 1.55em;
+  margin: 0 0.12em;
+  border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--border));
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent-soft) 42%, var(--surface));
+  font-size: 0.95em;
+  line-height: 1;
+  vertical-align: -0.18em;
+}
+
 .site-header {
   position: fixed;
   inset: 0 auto 0 0;
@@ -311,6 +340,11 @@ h3 {
 
   .container {
     width: min(1000px, calc(100% - 2rem));
+  }
+
+  .site-footer {
+    width: min(1000px, calc(100% - 2rem));
+    padding-bottom: 1.8rem;
   }
 
   .site-header {

@@ -5,9 +5,50 @@ import researchPillars from "../data/research-pillars.json";
 
 const latestNews = news.items.slice(0, 3);
 const earlierNews = news.items.slice(3);
+const description =
+  "Han Wang is a postdoctoral researcher at ETH Zurich developing safety-critical control and certified learning methods for autonomous systems.";
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://hanchwang.github.io/#han-wang",
+  name: "Han Wang",
+  alternateName: "王汉",
+  url: "https://hanchwang.github.io/",
+  image: "https://hanchwang.github.io/profile.jpg",
+  jobTitle: "Postdoctoral Researcher",
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: "ETH Zurich",
+    url: "https://ethz.ch/",
+  },
+  alumniOf: [
+    {
+      "@type": "CollegeOrUniversity",
+      name: "University of Oxford",
+      url: "https://www.ox.ac.uk/",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Shanghai Jiao Tong University",
+      url: "https://en.sjtu.edu.cn/",
+    },
+  ],
+  sameAs: [
+    "https://scholar.google.com/citations?user=iUn9IvYAAAAJ&hl=en",
+    "https://control.ee.ethz.ch/people/profile.han-wang.html",
+    "https://orcid.org/0000-0002-2752-984X",
+  ],
+  knowsAbout: [
+    "Safety-critical control",
+    "Control barrier functions",
+    "Certified learning",
+    "Autonomous systems",
+    "Model predictive control",
+  ],
+};
 ---
 
-<MainLayout title="Han Wang | Home">
+<MainLayout title="Han Wang | Safety-Critical Control and Certified Learning" description={description} canonicalPath="/" image="/profile.jpg" jsonLd={personJsonLd}>
   <section class="home-shell">
     <div>
       <section class="home-hero">

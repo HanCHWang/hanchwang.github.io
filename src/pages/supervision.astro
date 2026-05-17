@@ -5,6 +5,8 @@ import supervision from "../data/supervision.json";
 const projects = supervision.groups.flatMap((group) => group.items);
 const masterCount = projects.filter((item) => item.role.includes("Master")).length;
 const visitingCount = projects.filter((item) => item.role.includes("Visiting")).length;
+const description =
+  "Student supervision by Han Wang at ETH Zurich and the University of Oxford in safe learning, adaptive control, optimization, and autonomous systems.";
 
 const institutionLogos = {
   "At ETH Zürich": {
@@ -18,7 +20,7 @@ const institutionLogos = {
 };
 ---
 
-<MainLayout title="Supervision | Han Wang">
+<MainLayout title="Supervision | Han Wang" description={description} canonicalPath="/supervision/">
   <section class="page-intro">
     <h1>Supervision</h1>
     <p class="intro">

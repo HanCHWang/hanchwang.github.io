@@ -11,9 +11,30 @@ export function getStaticPaths() {
 
 const { pillar } = Astro.props;
 const otherPillars = researchPillars.items.filter((item) => item.slug !== pillar.slug);
+const description = `${pillar.title} research by Han Wang: ${pillar.summary}`;
+const image = pillar.media?.poster || pillar.media?.src || "/site-logo.png";
+const researchWorkJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: `${pillar.title} | Han Wang`,
+  description,
+  url: `https://hanchwang.github.io/research/${pillar.slug}/`,
+  image: new URL(image, "https://hanchwang.github.io").toString(),
+  author: {
+    "@type": "Person",
+    name: "Han Wang",
+    url: "https://hanchwang.github.io/",
+  },
+  keywords: pillar.topics,
+  hasPart: (pillar.sections || []).map((section) => ({
+    "@type": "CreativeWork",
+    name: section.title,
+    description: section.description,
+  })),
+};
 ---
 
-<MainLayout title={`${pillar.title} | Research | Han Wang`}>
+<MainLayout title={`${pillar.title} | Research | Han Wang`} description={description} canonicalPath={`/research/${pillar.slug}/`} image={image} jsonLd={researchWorkJsonLd}>
   <section class="page-intro">
     <h1>{pillar.title}</h1>
     <p class="intro">{pillar.summary}</p>

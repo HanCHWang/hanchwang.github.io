@@ -81,6 +81,38 @@ const groupedPublications = categories.map((category) => ({
 }));
 
 const totalCount = publications.length;
+const description =
+  "Publications by Han Wang on safety-critical control, control barrier functions, certified learning, predictive control, robotics, and autonomous systems.";
+const scholarlyArticles = publications.slice(0, 25).map((publication) => ({
+  "@type": "ScholarlyArticle",
+  headline: publication.title,
+  name: publication.title,
+  author: (publication.authors || ["Han Wang"]).map((author) => ({
+    "@type": "Person",
+    name: author,
+  })),
+  datePublished: publication.year,
+  isPartOf: publication.venue
+    ? {
+        "@type": "PublicationIssue",
+        name: publication.venue,
+      }
+    : undefined,
+  url:
+    publication.links?.doi ||
+    publication.links?.arxiv ||
+    publication.links?.pdf ||
+    publication.links?.url ||
+    "https://hanchwang.github.io/publications/",
+}));
+const publicationsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Publications by Han Wang",
+  description,
+  url: "https://hanchwang.github.io/publications/",
+  mainEntity: scholarlyArticles,
+};
 
 function compact(parts: Array<string | undefined>) {
   return parts.filter(Boolean).join(", ");
@@ -117,7 +149,7 @@ function getLinks(publication: Publication) {
 }
 ---
 
-<MainLayout title="Publications | Han Wang">
+<MainLayout title="Publications | Han Wang" description={description} canonicalPath="/publications/" jsonLd={publicationsJsonLd}>
   <section class="page-intro">
     <h1>Publications</h1>
 
