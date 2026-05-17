@@ -63,22 +63,23 @@ h3 {
   margin: 0;
 }
 
-.codex-logo {
+.openai-logo {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 1.2em;
   height: 1.35em;
-  margin: 0 0.14em;
-  padding: 0 0.44em;
-  border: 1px solid color-mix(in srgb, var(--accent) 44%, var(--border));
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent-soft) 42%, var(--surface));
-  color: var(--accent-ink);
-  font-size: 0.78em;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  margin: 0 0.08em;
+  color: var(--text);
   line-height: 1;
-  text-transform: uppercase;
-  vertical-align: 0.06em;
+  vertical-align: -0.14em;
+}
+
+.openai-logo svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
 }
 
 .site-header {
