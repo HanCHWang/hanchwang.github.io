@@ -1,6 +1,14 @@
 {
   "items": [
     {
+      "date": "2026-06",
+      "text": "I will serve as an Associate Editor for the 2027 European Control Conference."
+    },
+    {
+      "date": "2026-06",
+      "text": "Our paper \"Safe and Stable Filter Design Using a Relaxed Compatibility Control Barrier-Lyapunov Condition\" was accepted by Automatica."
+    },
+    {
       "date": "2026-05",
       "text": "I attended EuroGNC 2026 and gave a tutorial talk on CBF design using convex optimization."
     },

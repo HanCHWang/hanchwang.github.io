@@ -11,12 +11,12 @@
     },
     {
       "id": "manual:safe-stable-filter-relaxed-compatibility-cblf",
-      "category": "preprint",
+      "category": "journal",
       "title": "Safe and Stable Filter Design Using a Relaxed Compatibility Control Barrier-Lyapunov Condition",
       "authors": ["Han Wang", "Kostas Margellos", "Antonis Papachristodoulou"],
       "venue": "Automatica",
       "year": "2026",
-      "note": "Under review",
+      "note": "Accepted",
       "links": {
         "arxiv": "https://arxiv.org/abs/2407.00414"
       }
