@@ -27,18 +27,7 @@ const links = [
     </div>
 
     <div class="nav-right">
-      <button
-        id="nav-menu-toggle"
-        class="nav-menu-toggle"
-        aria-label="Open navigation menu"
-        aria-controls="primary-nav-links"
-        aria-expanded="false"
-        type="button"
-      >
-        <span class="nav-menu-bars" aria-hidden="true"></span>
-      </button>
-
-      <div id="primary-nav-links" class="nav-links">
+      <div class="nav-links">
         {links.map((link) => (
           <a href={link.href} class="nav-link">{link.label}</a>
         ))}
@@ -65,9 +54,6 @@ const links = [
 
 <script is:inline>
   const button = document.getElementById("theme-toggle");
-  const menuButton = document.getElementById("nav-menu-toggle");
-  const nav = document.querySelector(".nav");
-  const navLinks = document.getElementById("primary-nav-links");
   const root = document.documentElement;
 
   function updateIcon(theme) {
@@ -94,35 +80,6 @@ const links = [
     const current = root.dataset.theme || "light";
     const next = current === "dark" ? "light" : "dark";
     applyTheme(next);
-  });
-
-  function setMenuOpen(isOpen) {
-    nav?.setAttribute("data-menu-open", String(isOpen));
-    menuButton?.setAttribute("aria-expanded", String(isOpen));
-    menuButton?.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
-  }
-
-  menuButton?.addEventListener("click", () => {
-    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-    setMenuOpen(!isOpen);
-  });
-
-  navLinks?.addEventListener("click", (event) => {
-    if (event.target instanceof HTMLAnchorElement) {
-      setMenuOpen(false);
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setMenuOpen(false);
-  });
-
-  document.addEventListener("click", (event) => {
-    if (!nav?.contains(event.target)) setMenuOpen(false);
-  });
-
-  window.addEventListener("resize", () => {
-    if (window.matchMedia("(min-width: 769px)").matches) setMenuOpen(false);
   });
 
   const countdownDays = document.getElementById("snow-countdown-days");

@@ -103,10 +103,6 @@ h3 {
   padding: 2.1rem 1.15rem;
 }
 
-.nav-menu-toggle {
-  display: none;
-}
-
 .nav-identity {
   display: flex;
   width: 100%;
@@ -369,25 +365,16 @@ h3 {
     padding: 0 1rem;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
   }
 
   .nav-identity {
     width: auto;
-    flex: 0 0 auto;
     align-items: flex-start;
     text-align: left;
   }
 
   .brand {
     text-align: left;
-    font-size: 1.22rem;
-    line-height: 1.08;
-  }
-
-  .brand-cn {
-    font-size: 1.22rem;
   }
 
   .eth-logo,
@@ -397,182 +384,22 @@ h3 {
   }
 
   .nav-right {
-    width: auto;
-    min-width: 0;
+    width: 100%;
     min-height: auto;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: nowrap;
-    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .nav-links {
     flex-direction: row;
-    gap: clamp(0.55rem, 1.5vw, 1rem);
-    flex-wrap: nowrap;
-    min-width: 0;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .nav-link {
     padding: 0;
-    white-space: nowrap;
-    font-size: clamp(0.9rem, 1.7vw, 1.02rem);
-  }
-
-  .theme-toggle {
-    margin-top: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .site-header {
-    position: sticky;
-    top: 0;
-  }
-
-  .nav {
-    position: relative;
-    min-height: 64px;
-    padding: 0.55rem 0.85rem;
-  }
-
-  .brand {
-    max-width: 9rem;
-    overflow: hidden;
-    font-size: 1.04rem;
-    line-height: 1.05;
-  }
-
-  .brand-cn {
-    font-size: 1.04rem;
-    letter-spacing: 0.08em;
-  }
-
-  .nav-right {
-    gap: 0.55rem;
-    margin-left: auto;
-  }
-
-  .nav-menu-toggle {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 38px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--surface) 82%, var(--bg));
-    color: var(--text);
-    cursor: pointer;
-    flex: 0 0 auto;
-    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .nav-menu-toggle:hover,
-  .nav-menu-toggle:focus-visible {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-soft) 72%, transparent);
-  }
-
-  .nav-menu-bars,
-  .nav-menu-bars::before,
-  .nav-menu-bars::after {
-    display: block;
-    width: 17px;
-    height: 2px;
-    border-radius: 999px;
-    background: currentColor;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-
-  .nav-menu-bars {
-    position: relative;
-  }
-
-  .nav-menu-bars::before,
-  .nav-menu-bars::after {
-    position: absolute;
-    left: 0;
-    content: "";
-  }
-
-  .nav-menu-bars::before {
-    transform: translateY(-6px);
-  }
-
-  .nav-menu-bars::after {
-    transform: translateY(6px);
-  }
-
-  .nav[data-menu-open="true"] .nav-menu-bars {
-    background: transparent;
-  }
-
-  .nav[data-menu-open="true"] .nav-menu-bars::before {
-    transform: rotate(45deg);
-    background: currentColor;
-  }
-
-  .nav[data-menu-open="true"] .nav-menu-bars::after {
-    transform: rotate(-45deg);
-    background: currentColor;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    right: 0.85rem;
-    left: 0.85rem;
-    display: none;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.35rem;
-    padding: 0.55rem;
-    border: 1px solid var(--border);
-    border-radius: 0 0 0.75rem 0.75rem;
-    background: color-mix(in srgb, var(--bg) 96%, var(--surface));
-    box-shadow: 0 14px 24px color-mix(in srgb, var(--shadow) 80%, transparent);
-  }
-
-  .nav[data-menu-open="true"] .nav-links {
-    display: grid;
-  }
-
-  .nav-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 38px;
-    padding: 0.48rem 0.55rem;
-    border-radius: 0.45rem;
-    background: color-mix(in srgb, var(--surface) 72%, transparent);
-    font-size: 0.94rem;
-  }
-
-  .theme-toggle {
-    width: 70px;
-    height: 38px;
-  }
-
-  .theme-option {
-    width: 30px;
-    height: 30px;
-    font-size: 1.02rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .brand {
-    max-width: 7.4rem;
-  }
-
-  .theme-toggle {
-    width: 64px;
-  }
-
-  .theme-option {
-    width: 27px;
   }
 }
 
