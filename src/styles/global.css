@@ -818,14 +818,6 @@ h3 {
   font-size: 1.12rem;
 }
 
-.blog-intro-copy {
-  max-width: 680px;
-  margin: 1rem 0 0;
-  color: var(--muted);
-  font-size: 1.12rem;
-  line-height: 1.7;
-}
-
 .blog-list {
   display: grid;
   gap: 1rem;
