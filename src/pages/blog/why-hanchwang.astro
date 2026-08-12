@@ -1,0 +1,86 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const title = "Why I Use “HanCHWang” Everywhere | Han Wang";
+const description =
+  "The personal story behind Han Wang's online ID, hanchwang, and the CH carried forward from his birth name, Han-Cheng Wang.";
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: "Why I Use “HanCHWang” Everywhere",
+  description,
+  datePublished: "2026-08-12",
+  dateModified: "2026-08-12",
+  inLanguage: "en",
+  author: {
+    "@type": "Person",
+    name: "Han Wang",
+    url: "https://hanchwang.github.io/",
+  },
+  mainEntityOfPage: "https://hanchwang.github.io/blog/why-hanchwang/",
+};
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  canonicalPath="/blog/why-hanchwang/"
+  type="article"
+  jsonLd={articleJsonLd}
+>
+  <a class="blog-back" href="/blog/"><span aria-hidden="true">←</span> Blog</a>
+
+  <article class="blog-article">
+    <header class="blog-article-header">
+      <p class="blog-meta">Personal note · <time datetime="2026-08-12">August 12, 2026</time></p>
+      <h1>Why I Use “HanCHWang” Everywhere</h1>
+      <p class="blog-article-lede">
+        The short answer is that those two letters carry a small piece of my own history.
+      </p>
+    </header>
+
+    <div class="blog-article-body">
+      <p>
+        You may have noticed that I use <strong>hanchwang</strong> in many places online, including
+        the address of this website: <a href="https://hanchwang.github.io/">hanchwang.github.io</a>.
+      </p>
+
+      <p>
+        The “CH” is not a reference to Switzerland. It is easy to read it as the Swiss country code,
+        especially now that I live and work in Zürich, but that is not where it came from. It comes
+        from <em>Cheng</em>, the romanization of the Chinese character <span class="inline-hanzi" lang="zh-Hans">成</span>.
+      </p>
+
+      <p>
+        When I was born, my name was <span class="inline-hanzi" lang="zh-Hans">王汉成</span>, written in English as
+        <strong>Han-Cheng Wang</strong>. Later, my name was changed to <span class="inline-hanzi" lang="zh-Hans">王汉</span>, or
+        <strong>Han Wang</strong>.
+      </p>
+
+      <aside class="name-history" aria-label="The history of my name">
+        <div class="name-history-row">
+          <span class="hanzi" lang="zh-Hans">王汉成</span>
+          <span class="name-arrow" aria-hidden="true">→</span>
+          <span class="romanization">Han-Cheng Wang</span>
+        </div>
+        <div class="name-history-row">
+          <span class="hanzi" lang="zh-Hans">王汉</span>
+          <span class="name-arrow" aria-hidden="true">→</span>
+          <span class="romanization">Han Wang</span>
+        </div>
+      </aside>
+
+      <p>
+        The character <span class="inline-hanzi" lang="zh-Hans">成</span> no longer appears in my current name, but the
+        “CH” stayed with me online. It became a quiet link between the name I was given at birth and
+        the name I use today.
+      </p>
+
+      <p>
+        That is why I often use <strong>HanCH Wang</strong>—or simply <strong>hanchwang</strong>—as my ID across websites,
+        accounts, and projects. It is not a country code or a random set of letters. It is a small
+        personal trace that I have carried forward.
+      </p>
+    </div>
+  </article>
+</MainLayout>

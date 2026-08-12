@@ -7,6 +7,8 @@ const staticPages = [
   { path: "/research/", priority: "0.9" },
   { path: "/publications/", priority: "0.9" },
   { path: "/supervision/", priority: "0.7" },
+  { path: "/blog/", priority: "0.7" },
+  { path: "/blog/why-hanchwang/", priority: "0.6" },
   { path: "/misc/", priority: "0.5" },
 ];
 
