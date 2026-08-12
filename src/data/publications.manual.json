@@ -3,11 +3,14 @@
     {
       "id": "manual:data-enabled-primal-dual-adaptive-control",
       "category": "preprint",
-      "title": "A Data-Enabled Primal-Dual Approach for Adaptive Control with SDP Formulations",
-      "authors": ["Han Wang", "F. Zhao", "Florian Dörfler"],
+      "title": "A Data-Enabled Primal-Dual Approach for Policy Learning with SDP Formulations",
+      "authors": ["Han Wang", "Feiran Zhao", "Florian Dörfler"],
       "venue": "IEEE Transactions on Automatic Control",
       "year": "2026",
-      "note": "Under review"
+      "note": "Under review",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2607.00644"
+      }
     },
     {
       "id": "manual:safe-stable-filter-relaxed-compatibility-cblf",
@@ -25,28 +28,118 @@
       "id": "manual:safety-certificates-discrete-time-uncertain-systems",
       "category": "preprint",
       "title": "Synthesis of Safety Certificates for Discrete-Time Uncertain Systems via Convex Optimization",
-      "authors": ["M. Fochesato", "Han Wang", "Antonis Papachristodoulou", "P. Goulart"],
+      "authors": ["Marta Fochesato", "Han Wang", "Antonis Papachristodoulou", "Paul Goulart"],
       "venue": "Automatica",
       "year": "2026",
-      "note": "Under review"
+      "note": "Under review",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2505.08559"
+      }
     },
     {
       "id": "manual:mpc-multiple-constraint-horizons",
       "category": "preprint",
       "title": "Model Predictive Control with Multiple Constraint Horizons",
-      "authors": ["A. Nascimento", "Han Wang", "Antonis Papachristodoulou", "Kostas Margellos"],
+      "authors": ["Allan Andre do Nascimento", "Han Wang", "Antonis Papachristodoulou", "Kostas Margellos"],
       "venue": "IEEE Transactions on Automatic Control",
       "year": "2026",
-      "note": "Under review"
+      "note": "Under review",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2511.02114"
+      }
     },
     {
       "id": "manual:rational-polynomial-state-feedback-controllers",
       "category": "preprint",
       "title": "On the Design of Rational Polynomial State Feedback Controllers",
-      "authors": ["M. Newton", "Z. Xiong", "Han Wang", "Antonis Papachristodoulou"],
+      "authors": ["Matthew Newton", "Zuxun Xiong", "Han Wang", "Antonis Papachristodoulou"],
       "venue": "Automatica",
       "year": "2026",
-      "note": "Under review"
+      "note": "Under review",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2511.18988"
+      }
+    },
+    {
+      "id": "manual:convex-distributed-safety-analysis-thesis",
+      "category": "other",
+      "title": "Convex and Distributed Safety Analysis and Design for Control Systems",
+      "authors": ["Han Wang"],
+      "venue": "University of Oxford",
+      "year": "2024",
+      "note": "DPhil thesis",
+      "links": {
+        "doi": "https://doi.org/10.5287/ora-zrar0xomb",
+        "url": "https://ora.ox.ac.uk/objects/uuid%3Ab8183fbf-14dd-484f-9476-d3bf6d7113ec"
+      }
+    },
+    {
+      "id": "arxiv:2312.08293",
+      "category": "preprint",
+      "title": "Model-Free Verification for Neural Network Controlled Systems",
+      "authors": ["Han Wang", "Zuxun Xiong", "Liqun Zhao", "Antonis Papachristodoulou"],
+      "venue": "arXiv",
+      "year": "2023",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2312.08293"
+      }
+    },
+    {
+      "id": "arxiv:2204.08265",
+      "category": "preprint",
+      "title": "Configuration-Aware Safe Control for Mobile Robotic Arm with Control Barrier Functions",
+      "authors": ["Fan Ding", "Han Wang", "Jianping He", "Yi Ren", "Yu Zheng"],
+      "venue": "arXiv",
+      "year": "2022",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2204.08265"
+      }
+    },
+    {
+      "id": "arxiv:2204.13380",
+      "category": "preprint",
+      "title": "Safety-Aware Optimal Control in Motion Planning",
+      "authors": ["Han Wang", "Xuda Ding", "Jianping He", "Kostas Margellos", "Antonis Papachristodoulou"],
+      "venue": "arXiv",
+      "year": "2022",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2204.13380"
+      }
+    },
+    {
+      "id": "doi:10.23919/acc50511.2021.9483081",
+      "category": "conference",
+      "title": "Consensus and Approximation-Based Distribution Statistics in Network Systems",
+      "authors": ["Yushan Li", "Qing Jiao", "Han Wang", "Jianping He"],
+      "venue": "American Control Conference",
+      "year": "2021",
+      "pages": "3767-3772",
+      "links": {
+        "doi": "https://doi.org/10.23919/ACC50511.2021.9483081"
+      }
+    },
+    {
+      "id": "arxiv:2103.04391",
+      "category": "preprint",
+      "title": "Robopheus: A Virtual-Physical Interactive Mobile Robotic Testbed",
+      "authors": ["Xuda Ding", "Han Wang", "Hongbo Li", "Hao Jiang", "Jianping He"],
+      "venue": "arXiv",
+      "year": "2021",
+      "links": {
+        "arxiv": "https://arxiv.org/abs/2103.04391"
+      }
+    },
+    {
+      "id": "doi:10.1109/isie.2019.8781433",
+      "category": "conference",
+      "title": "Optimal Topology Recovery Scheme for Multi-Robot Formation Control",
+      "authors": ["Yushan Li", "Han Wang", "Jianping He", "Xinping Guan"],
+      "venue": "IEEE International Symposium on Industrial Electronics",
+      "year": "2019",
+      "pages": "1847-1852",
+      "links": {
+        "doi": "https://doi.org/10.1109/ISIE.2019.8781433"
+      }
     }
   ]
 }

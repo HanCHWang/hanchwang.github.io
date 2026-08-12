@@ -1,8 +1,43 @@
 {
-  "generatedAt": "2026-05-15T20:40:27.521Z",
+  "generatedAt": "2026-08-12T18:59:05.839Z",
   "source": "orcid",
   "orcidId": "0000-0002-2752-984X",
   "items": [
+    {
+      "id": "doi:10.1016/j.epsr.2026.113518",
+      "source": "orcid",
+      "putCode": 218996255,
+      "type": "journal-article",
+      "category": "journal",
+      "title": "Model-free power system stability enhancement with dissipativity-based neural control",
+      "subtitle": "",
+      "authors": [
+        "Yifei Wang",
+        "Han Wang",
+        "Kehao Zhuang",
+        "Keith Moffat",
+        "Florian Dörfler"
+      ],
+      "venue": "Electric Power Systems Research",
+      "year": "2027",
+      "date": "2027-01",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "publisher": "",
+      "links": {
+        "doi": "https://doi.org/10.1016/j.epsr.2026.113518",
+        "url": "https://doi.org/10.1016/j.epsr.2026.113518"
+      },
+      "identifiers": [
+        {
+          "type": "doi",
+          "value": "10.1016/j.epsr.2026.113518",
+          "url": "https://doi.org/10.1016/j.epsr.2026.113518",
+          "relationship": "self"
+        }
+      ]
+    },
     {
       "id": "orcid:214806125",
       "source": "orcid",
@@ -80,31 +115,6 @@
         "Antonis Papachristodoulou"
       ],
       "venue": "International Conference on Learning Representations",
-      "year": "2026",
-      "date": "2026",
-      "volume": "",
-      "issue": "",
-      "pages": "",
-      "publisher": "",
-      "links": {},
-      "identifiers": []
-    },
-    {
-      "id": "orcid:214806115",
-      "source": "orcid",
-      "putCode": 214806115,
-      "type": "journal-article",
-      "category": "journal",
-      "title": "Model-Free Power System Stability Enhancement with Dissipativity-Based Neural Control",
-      "subtitle": "",
-      "authors": [
-        "Yifei Wang",
-        "Han Wang",
-        "Kehao Zhuang",
-        "Keith Moffat",
-        "Florian Dörfler"
-      ],
-      "venue": "Electric Power Systems Research",
       "year": "2026",
       "date": "2026",
       "volume": "",
@@ -558,38 +568,6 @@
       ]
     },
     {
-      "id": "doi:10.1016/j.ejcon.2022.100692",
-      "source": "orcid",
-      "putCode": 214806120,
-      "type": "journal-article",
-      "category": "journal",
-      "title": "A Time-Triggered Dimension Reduction Algorithm for the Task Assignment Problem",
-      "subtitle": "",
-      "authors": [
-        "Han Wang",
-        "Kostas Margellos",
-        "Antonis Papachristodoulou"
-      ],
-      "venue": "European Journal of Control",
-      "year": "2022",
-      "date": "2022",
-      "volume": "",
-      "issue": "",
-      "pages": "",
-      "publisher": "",
-      "links": {
-        "doi": "https://doi.org/10.1016/j.ejcon.2022.100692"
-      },
-      "identifiers": [
-        {
-          "type": "doi",
-          "value": "10.1016/j.ejcon.2022.100692",
-          "url": "",
-          "relationship": "self"
-        }
-      ]
-    },
-    {
       "id": "doi:10.1109/cdc51059.2022.9993181",
       "source": "orcid",
       "putCode": 214806109,
@@ -616,39 +594,6 @@
         {
           "type": "doi",
           "value": "10.1109/CDC51059.2022.9993181",
-          "url": "",
-          "relationship": "self"
-        }
-      ]
-    },
-    {
-      "id": "doi:10.23919/acc50511.2021.9483081",
-      "source": "orcid",
-      "putCode": 214806118,
-      "type": "conference-paper",
-      "category": "conference",
-      "title": "Consensus and Approximation-Based Distribution Statistics in Network Systems",
-      "subtitle": "",
-      "authors": [
-        "Yushan Li",
-        "Qing Jiao",
-        "Han Wang",
-        "Jianping He"
-      ],
-      "venue": "American Control Conference",
-      "year": "2021",
-      "date": "2021",
-      "volume": "",
-      "issue": "",
-      "pages": "",
-      "publisher": "",
-      "links": {
-        "doi": "https://doi.org/10.23919/ACC50511.2021.9483081"
-      },
-      "identifiers": [
-        {
-          "type": "doi",
-          "value": "10.23919/ACC50511.2021.9483081",
           "url": "",
           "relationship": "self"
         }

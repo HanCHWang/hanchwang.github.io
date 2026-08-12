@@ -1,1 +1,75 @@
-{}
+{
+  "doi:10.1016/j.epsr.2026.113518": {
+    "volume": "262",
+    "pages": "113518"
+  },
+  "doi:10.1109/tac.2025.3638061": {
+    "volume": "71",
+    "issue": "4",
+    "pages": "2770-2777"
+  },
+  "doi:10.1109/lcsys.2025.3580355": {
+    "volume": "9",
+    "pages": "1676-1681"
+  },
+  "orcid:214806117": {
+    "pages": "6498-6503"
+  },
+  "doi:10.1016/j.automatica.2025.112393": {
+    "volume": "179",
+    "pages": "112393"
+  },
+  "orcid:214806114": {
+    "title": "Designing Neural Controllers with Optimality and Stability Guarantees by Learning Input-Output Dissipativity",
+    "year": "2026",
+    "date": "2026-09",
+    "volume": "191",
+    "pages": "113120",
+    "links": {
+      "doi": "https://doi.org/10.1016/j.automatica.2026.113120"
+    }
+  },
+  "doi:10.1002/rnc.6933": {
+    "volume": "35",
+    "issue": "17",
+    "pages": "7104-7123"
+  },
+  "orcid:214806111": {
+    "pages": "1217-1229"
+  },
+  "orcid:214806121": {
+    "pages": "2623-2629"
+  },
+  "doi:10.23919/ccc64809.2025.11179777": {
+    "pages": "1598-1603"
+  },
+  "doi:10.1109/cdc56724.2024.10886664": {
+    "pages": "8158-8163"
+  },
+  "doi:10.1109/cac63892.2024.10865457": {
+    "pages": "4310-4315"
+  },
+  "doi:10.1109/tsmc.2024.3387434": {
+    "volume": "54",
+    "issue": "8",
+    "pages": "4761-4771"
+  },
+  "doi:10.1007/978-3-031-38659-6_7": {
+    "pages": "207-234"
+  },
+  "doi:10.1016/j.ifacol.2023.10.1876": {
+    "volume": "56",
+    "issue": "2",
+    "pages": "1698-1703"
+  },
+  "doi:10.1016/j.ejcon.2022.100692": {
+    "volume": "68",
+    "pages": "100692"
+  },
+  "doi:10.1109/cdc51059.2022.9993181": {
+    "pages": "5680-5685"
+  },
+  "doi:10.23919/acc.2019.8814369": {
+    "pages": "2696-2701"
+  }
+}

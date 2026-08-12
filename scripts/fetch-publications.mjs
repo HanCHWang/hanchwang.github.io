@@ -128,6 +128,56 @@ function normalizeWork(work) {
   };
 }
 
+function normalizedTitle(title) {
+  return String(title || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function itemScore(item) {
+  return [
+    item.links?.doi ? 1 : 0,
+    Number(item.year || 0),
+    item.date ? item.date.split("-").length : 0,
+    item.authors?.length || 0
+  ];
+}
+
+function preferItem(candidate, existing) {
+  const candidateScore = itemScore(candidate);
+  const existingScore = itemScore(existing);
+
+  for (let index = 0; index < candidateScore.length; index += 1) {
+    if (candidateScore[index] !== existingScore[index]) {
+      return candidateScore[index] > existingScore[index];
+    }
+  }
+
+  return false;
+}
+
+function deduplicateBy(items, getKey) {
+  const deduplicated = new Map();
+
+  for (const item of items) {
+    const key = getKey(item);
+    const existing = deduplicated.get(key);
+
+    if (!existing || preferItem(item, existing)) {
+      deduplicated.set(key, item);
+    }
+  }
+
+  return [...deduplicated.values()];
+}
+
+function deduplicateItems(items) {
+  const uniqueIds = deduplicateBy(items, (item) => item.id);
+  return deduplicateBy(uniqueIds, (item) => normalizedTitle(item.title));
+}
+
 async function fetchJson(url) {
   const response = await fetch(url, {
     headers: {
@@ -163,13 +213,15 @@ async function main() {
     )
   ];
 
-  const items = [];
+  const fetchedItems = [];
 
   for (const putCode of putCodes) {
     const work = await fetchJson(`${apiBase}/${orcidId}/work/${putCode}`);
     const item = normalizeWork(work);
-    if (item.title) items.push(item);
+    if (item.title) fetchedItems.push(item);
   }
+
+  const items = deduplicateItems(fetchedItems);
 
   items.sort((a, b) => Number(b.year || 0) - Number(a.year || 0) || a.title.localeCompare(b.title));
 
