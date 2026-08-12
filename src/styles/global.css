@@ -691,14 +691,6 @@ h3 {
   line-height: 1;
 }
 
-.misc-intro-copy {
-  max-width: 650px;
-  margin: 1rem 0 0;
-  color: var(--muted);
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-
 .misc-service {
   max-width: 920px;
   margin-top: 4rem;
