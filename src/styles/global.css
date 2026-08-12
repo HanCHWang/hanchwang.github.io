@@ -656,8 +656,7 @@ h3 {
   }
 }
 
-.bio-section,
-.news-section {
+.bio-section {
   margin-top: 3.5rem;
   padding-top: 2.5rem;
   border-top: 1px solid var(--border);
@@ -682,74 +681,6 @@ h3 {
   color: var(--text);
 }
 
-.section-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-
-.section-heading .eyebrow {
-  margin-bottom: 0.4rem;
-}
-
-.section-heading h2 {
-  margin: 0;
-  font-size: 1.8rem;
-  line-height: 1.15;
-}
-
-.news-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--border);
-}
-
-.news-item {
-  display: grid;
-  grid-template-columns: 8.5rem minmax(0, 1fr);
-  gap: 1.1rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.news-item time {
-  color: var(--muted);
-  font-size: 0.95rem;
-  font-weight: 700;
-  line-height: 1.55;
-  white-space: nowrap;
-}
-
-.news-item p {
-  margin: 0;
-  color: var(--text);
-  line-height: 1.65;
-}
-
-.news-item a {
-  color: inherit;
-  text-decoration-color: color-mix(in srgb, var(--muted) 60%, transparent);
-  text-underline-offset: 0.18em;
-}
-
-.news-item a:hover {
-  color: var(--muted);
-}
-
-@media (max-width: 700px) {
-  .section-heading {
-    display: block;
-  }
-
-  .news-item {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
-  }
-}
-
 .page-intro {
   max-width: 780px;
 }
@@ -758,6 +689,133 @@ h3 {
   margin: 0;
   font-size: clamp(2.25rem, 5vw, 4.5rem);
   line-height: 1;
+}
+
+.misc-intro-copy {
+  max-width: 650px;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.misc-service {
+  max-width: 920px;
+  margin-top: 4rem;
+}
+
+.misc-section-heading {
+  margin-bottom: 1.5rem;
+}
+
+.misc-section-heading .eyebrow {
+  margin-bottom: 0.35rem;
+}
+
+.misc-section-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  padding: 1.45rem;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 22px;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--accent-soft) 22%, transparent), transparent 55%),
+    color-mix(in srgb, var(--surface) 94%, var(--bg));
+  box-shadow: 0 16px 38px color-mix(in srgb, var(--shadow) 58%, transparent);
+}
+
+.service-card::after {
+  position: absolute;
+  inset: auto -2.2rem -2.8rem auto;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent-soft) 48%, transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.service-card-featured {
+  grid-column: 1 / -1;
+  min-height: 190px;
+  padding: 1.7rem;
+  background:
+    linear-gradient(112deg, color-mix(in srgb, var(--accent-soft) 68%, var(--surface)), transparent 72%),
+    var(--surface);
+}
+
+.service-card article {
+  position: relative;
+  z-index: 1;
+}
+
+.service-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.3rem;
+  color: var(--accent-ink);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.service-card-meta span,
+.service-card-meta time {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0.3rem 0.62rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-soft) 58%, var(--surface));
+}
+
+.service-card-meta time {
+  color: var(--muted);
+  background: color-mix(in srgb, var(--surface-soft) 72%, var(--surface));
+}
+
+.service-card h3 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.service-card-featured h3 {
+  font-size: clamp(2.25rem, 5vw, 3.7rem);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.service-card p {
+  max-width: 710px;
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.service-card-featured p {
+  color: var(--text);
+  font-size: 1.12rem;
 }
 
 .blog-intro-copy {
@@ -1242,6 +1300,19 @@ h3 {
 @media (max-width: 700px) {
   .page-intro h1 {
     font-size: 2.4rem;
+  }
+
+  .misc-service {
+    margin-top: 3rem;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card-featured {
+    grid-column: auto;
+    min-height: 0;
   }
 
   .blog-article h1 {
